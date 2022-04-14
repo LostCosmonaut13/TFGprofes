@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TFGprofes</string>
+    <string name="btGuardarAlumno">GUARDAR</string>
+    <string name="etNombre">Nombre alumno</string>
+    <string name="etTlf">Tlf alumno</string>
+    <string name="etEmail">Email</string>
+    <string name="etPersonaContacto">Persona de Contacto</string>
+    <string name="etTlfContacto">Tlf persona de contacto</string>
+    <string name="tvPrecioHora">Precio/Hora</string>
+    <string name="etPrecio">€/h</string>
+
+</resources>

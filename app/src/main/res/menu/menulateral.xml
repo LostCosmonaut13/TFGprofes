@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    tools:context=".MainActivity">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Titulo primero">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/idUNO"
+                        android:icon="@mipmap/icosalida"
+                        android:title="Item UNO"/>
+                    <item
+                        android:id="@+id/idDOS"
+                        android:icon="@mipmap/icosalida"
+                        android:title="Item DOS"/>
+                    <item
+                        android:id="@+id/idTRES"
+                        android:icon="@mipmap/icosalida"
+                        android:title="Item TRES"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/grupoDos"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/idCUATRO"
+            android:icon="@mipmap/icoaven"
+            android:title="ITEM CUATRO"/>
+        <item
+            android:id="@+id/idCINCO"
+            android:icon="@mipmap/icoaven"
+            android:title="ITEM CINCO"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Enemigos">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/ide1"
+                        android:icon="@mipmap/icoaven"
+                        android:title="Enemigo 1"/>
+                    <item
+                        android:id="@+id/ide2"
+                        android:icon="@mipmap/icoaven"
+                        android:title="Enemigo 2"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+
+</menu>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1020513207335",
+    "project_id": "tfgprofes",
+    "storage_bucket": "tfgprofes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020513207335:android:9e4b07a401145ac2727a02",
+        "android_client_info": {
+          "package_name": "com.example.tfgprofes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020513207335-0ut1jjleqikv3nrqebd50pc85gluocup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tfgprofes",
+            "certificate_hash": "02dbaa4ecd0fa57be6f8ca41f08185b1be9b6da3"
+          }
+        },
+        {
+          "client_id": "1020513207335-i1297jtqmcgopm9vq1ekjcupn0pufqd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALV6kH2MyzzOzx4AcHuJ1HJhKdF2bL7Zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020513207335-i1297jtqmcgopm9vq1ekjcupn0pufqd5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
