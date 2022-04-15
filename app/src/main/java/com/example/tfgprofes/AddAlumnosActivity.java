@@ -79,6 +79,23 @@ public class AddAlumnosActivity extends AppCompatActivity {
 
     }
 
+    public boolean alumnoExistente(){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        String telefono = etTelefono.getText().toString();
+
+        String Query = "Select * from alumno where telefono = " + telefono;
+        Cursor cursor = bd.rawQuery(Query, null);
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
+
     private void LimpiarPantalla(){
         etTelefono.setText("");
         etNombre.setText("");
@@ -88,7 +105,7 @@ public class AddAlumnosActivity extends AppCompatActivity {
         etTotal.setText("");
 
     }
-////ESTA A LA NUEVA CLASE
+
 //    public Alumnos verAlumnos(String tel) {
 //        try {
 //            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
@@ -248,23 +265,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //        }
 //
 //    }
-
-    public boolean alumnoExistente(){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-
-        String telefono = etTelefono.getText().toString();
-
-        String Query = "Select * from alumno where telefono = " + telefono;
-        Cursor cursor = bd.rawQuery(Query, null);
-        if (cursor.getCount() <= 0) {
-            cursor.close();
-            return false;
-        }
-        cursor.close();
-        return true;
-    }
-
 
 
 }

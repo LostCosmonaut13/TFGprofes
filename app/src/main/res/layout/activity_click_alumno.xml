@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F5FB"
-    tools:context=".AddAlumnosActivity">
+    tools:context=".ClickAlumnoActivity">
 
     <TextView
         android:id="@+id/tTelefono"
@@ -19,7 +19,7 @@
         android:text="Telefono" />
 
     <EditText
-        android:id="@+id/etTlf"
+        android:id="@+id/etTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="9"
@@ -34,7 +34,7 @@
         android:id="@+id/tNombreApellidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etTlf"
+        android:layout_below="@+id/etTelefono"
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp"
         android:layout_marginTop="0dp"
@@ -152,16 +152,29 @@
         android:gravity="center"
         android:textSize="16dp" />
 
+
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPrecio"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="25dp"
-        android:text="@string/btGuardarAlumno"
-        android:backgroundTint="#40A33F"
-        android:onClick="altaAlumno"/>
+        android:text="editar"
+        android:backgroundTint="#3F5FA3"
+        android:onClick="modificarAlumno"/>
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPrecio"
+        android:layout_toRightOf="@+id/btnEditar"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="25dp"
+        android:text="borrar"
+        android:backgroundTint="#92091B"
+        android:onClick="borrarAlumno"/>
 
 
 </RelativeLayout>
