@@ -19,6 +19,7 @@ public class AddAlumnosActivity extends AppCompatActivity {
 
     private EditText etNombre, etTelefono, etEmail, etTlfContacto, etPrecio, etTotal;
     private SQLiteDatabase bd;
+    Alumnos alumno = null;
   //  public ArrayList<Alumnos> listaAlumnos;
 
 
@@ -87,41 +88,83 @@ public class AddAlumnosActivity extends AppCompatActivity {
         etTotal.setText("");
 
     }
-
-
-//    public ArrayList<Alumnos> mostrarAlumnos(View v) {
+////ESTA A LA NUEVA CLASE
+//    public Alumnos verAlumnos(String tel) {
 //        try {
 //            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
 //            SQLiteDatabase bd = admin.getWritableDatabase();
 //
-//            ArrayList<Alumnos> listaAlumnos = new ArrayList<>();
-//            Alumnos alumno = null;
-//
-//            Cursor fila = bd.rawQuery("select * from alumno", null);
+//            Cursor fila = bd.rawQuery("select * from alumno where telefono=" + tel + "", null);
+//            // Cursor fila = bd.rawQuery("select * from alumno", null);
 //
 //            if (fila.moveToFirst()) {
-//                do {
-//                    alumno = new Alumnos();
+//                alumno = new Alumnos();
 //
-//                    alumno.setTelefono(fila.getString(0));
-//                    alumno.setNombre(fila.getString(1));
-//                    alumno.setEmail(fila.getString(2));
-//                    alumno.setTelPersonaContacto(fila.getString(3));
-//                    alumno.setPrecioHora(fila.getString(4));
-//                    alumno.setTotal(fila.getString(5));
+//                alumno.setTelefono(fila.getString(0));
+//                alumno.setNombre(fila.getString(1));
+//                alumno.setEmail(fila.getString(2));
+//                alumno.setTelPersonaContacto(fila.getString(3));
+//                alumno.setPrecioHora(fila.getString(4));
+//                alumno.setTotal(fila.getString(5));
 //
-//                    listaAlumnos.add(alumno);
-//                } while (fila.moveToNext());
 //            }
-//
 //        } catch (Exception e) {
 //            System.err.println(e.getClass().getName() + ": " + e.getMessage());
 //        } finally {
 //            bd.close();
-//            return listaAlumnos; //echar vistazo a si quito el try o no: annadido como public variable arriba del todo
+//            return alumno;
+//        }
+//    }
+//        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+//        SQLiteDatabase bd = admin.getWritableDatabase();
+//
+//
+//        Alumnos alumno = null;
+//
+//        Cursor fila = bd.rawQuery("select * from alumno where telefono=" + tel + "", null);
+//       // Cursor fila = bd.rawQuery("select * from alumno", null);
+//
+//        if (fila.moveToFirst()) {
+//                alumno = new Alumnos();
+//
+//                alumno.setTelefono(fila.getString(0));
+//                alumno.setNombre(fila.getString(1));
+//                alumno.setEmail(fila.getString(2));
+//                alumno.setTelPersonaContacto(fila.getString(3));
+//                alumno.setPrecioHora(fila.getString(4));
+//                alumno.setTotal(fila.getString(5));
+//
 //        }
 //
+//        bd.close();
+//        return alumno;
 //    }
+//    public void verAlumno(tel) {
+//        try {
+//            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
+//            SQLiteDatabase bd = admin.getWritableDatabase();
+//
+//            Cursor fila = bd.rawQuery("select nombre,email,personaContacto,telPersonaContacto,precioHora,total  from alumno where telefono=" + telefono + "", null);
+//
+//            if (fila.moveToFirst()) {
+//                etTelefono.setText(fila.getString(0));
+//                etNombre.setText(fila.getString(1));
+//                etEmail.setText(fila.getString(2));
+//                etTlfContacto.setText(fila.getString(3));
+//                etPrecio.setText(fila.getString(4));
+//                etTotal.setText(fila.getString(5));
+//            } else {
+//                Toast.makeText(this, "No existe el alumno", Toast.LENGTH_SHORT).show();
+//                etTelefono.setText("");
+//            }
+//
+//        }catch(Exception e){
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }finally {
+//            bd.close();
+//        }
+//    }
+
 //    public void consulta(View v) {
 //        try {
 //            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
@@ -206,7 +249,7 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //
 //    }
 
-    public boolean alumnoExistente () {
+    public boolean alumnoExistente(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
 

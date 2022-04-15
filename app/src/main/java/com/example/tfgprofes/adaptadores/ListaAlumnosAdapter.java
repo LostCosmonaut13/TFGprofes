@@ -1,5 +1,7 @@
 package com.example.tfgprofes.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tfgprofes.AddAlumnosActivity;
+import com.example.tfgprofes.ClickAlumnoActivity;
 import com.example.tfgprofes.R;
 import com.example.tfgprofes.datosAlumnos.Alumnos;
 
@@ -30,8 +34,8 @@ public class ListaAlumnosAdapter extends RecyclerView.Adapter<ListaAlumnosAdapte
 
     @Override
     public void onBindViewHolder(@NonNull AlumnoViewHolder holder, int position) {
-        holder.viewNombre.setText(listaAlumnos.get(position).getNombre());
-        holder.viewTelefono.setText(listaAlumnos.get(position).getTelefono());
+        holder.etNombre.setText(listaAlumnos.get(position).getNombre());
+        holder.etTelefono.setText(listaAlumnos.get(position).getTelefono());
     }
 
     @Override
@@ -42,14 +46,29 @@ public class ListaAlumnosAdapter extends RecyclerView.Adapter<ListaAlumnosAdapte
 
     public class AlumnoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView viewNombre, viewTelefono;
+        TextView etNombre, etTelefono, etEmail, etTlfContacto, etPrecio, etTotal;
 
         public AlumnoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            viewNombre = itemView.findViewById(R.id.viewNombre);
-            viewTelefono = itemView.findViewById(R.id.viewTelefono);
+            etNombre = itemView.findViewById(R.id.etNombre);
+            etTelefono = itemView.findViewById(R.id.etTelefono);
+            etEmail = itemView.findViewById(R.id.etEmail);
+            etTlfContacto = itemView.findViewById(R.id.etTlfContacto);
+            etPrecio = itemView.findViewById(R.id.etPrecio);
+            etTotal = itemView.findViewById(R.id.etTotal);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, ClickAlumnoActivity.class);
+                    intent.putExtra("tel", listaAlumnos.get(getAdapterPosition()).getTelefono());
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }
+
 }

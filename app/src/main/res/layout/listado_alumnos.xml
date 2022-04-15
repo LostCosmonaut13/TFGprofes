@@ -10,7 +10,7 @@
 
 
         <TextView
-            android:id="@+id/viewNombre"
+            android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
@@ -18,10 +18,10 @@
             android:textSize="30dp" />
 
         <TextView
-            android:id="@+id/viewTelefono"
+            android:id="@+id/etTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/viewNombre"
+            android:layout_below="@+id/etNombre"
             android:textColor="#FFC107"
             android:text="Telefono"
             android:textSize="20dp"/>

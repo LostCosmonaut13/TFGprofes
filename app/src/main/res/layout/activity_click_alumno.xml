@@ -28,9 +28,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="15dp"
-        android:hint="Telefono de contacto"
-        android:textSize="16dp"
-        android:inputType="phone" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/tNombreApellidos"
@@ -54,7 +52,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="15dp"
-        android:hint="@string/etNombre"
         android:textSize="16dp"
         android:inputType="textPersonName" />
 
@@ -81,7 +78,6 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="15dp"
         android:ems="10"
-        android:hint="@string/etEmail"
         android:textSize="16dp"
         android:inputType="textEmailAddress" />
 
@@ -106,7 +102,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="15dp"
-        android:hint="(no necesario)"
         android:textSize="16dp"
         android:inputType="phone" />
 
@@ -131,8 +126,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="315dp"
-        android:hint="@string/etPrecio"
-        android:inputType="numberDecimal"
         android:textSize="16dp"
         android:gravity="center"/>
 
@@ -160,7 +153,7 @@
         android:textSize="16dp" />
 
     <Button
-        android:id="@+id/btGuardar"
+        android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPrecio"
