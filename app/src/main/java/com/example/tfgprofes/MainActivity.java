@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         bd.close();
-        return listaAlumnos; //echar vistazo a si quito el try o no: annadido como public variable arriba del todo
+        return listaAlumnos;
 
     }
 

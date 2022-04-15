@@ -28,7 +28,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="15dp"
-        android:hint="@string/etTlf"
+        android:hint="Telefono de contacto"
         android:textSize="16dp"
         android:inputType="phone" />
 
@@ -86,7 +86,7 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/tPersonaContacto"
+        android:id="@+id/tTlfContacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etEmail"
@@ -94,31 +94,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="15dp"
-        android:text="Persona de Contacto" />
-
-    <EditText
-        android:id="@+id/etPersonaContacto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tPersonaContacto"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="15dp"
-        android:hint="@string/etPersonaContacto"
-        android:textSize="16dp" />
-
-    <TextView
-        android:id="@+id/tTlfContacto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPersonaContacto"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
-        android:text="Persona de Contacto" />
+        android:text="Telefono extra" />
 
     <EditText
         android:id="@+id/etTlfContacto"
@@ -130,7 +106,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="15dp"
-        android:hint="@string/etTlfContacto"
+        android:hint="(no necesario)"
         android:textSize="16dp"
         android:inputType="phone" />
 

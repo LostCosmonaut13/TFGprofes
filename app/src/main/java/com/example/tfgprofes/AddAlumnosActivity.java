@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class AddAlumnosActivity extends AppCompatActivity {
 
-    private EditText etNombre, etTelefono, etEmail, etPersonaContacto, etTlfContacto, etPrecio, etTotal;
+    private EditText etNombre, etTelefono, etEmail, etTlfContacto, etPrecio, etTotal;
     private SQLiteDatabase bd;
   //  public ArrayList<Alumnos> listaAlumnos;
 
@@ -30,7 +30,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTlf);
         etNombre = findViewById(R.id.etNombre);
         etEmail = findViewById(R.id.etEmail);
-        etPersonaContacto = findViewById(R.id.etPersonaContacto);
         etTlfContacto = findViewById(R.id.etTlfContacto);
         etPrecio = findViewById(R.id.etPrecio);
         etTotal = findViewById(R.id.etTotal);
@@ -50,7 +49,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
                 String telefono = etTelefono.getText().toString();
                 String nombre = etNombre.getText().toString();
                 String email = etEmail.getText().toString();
-                String personaContacto = etPersonaContacto.getText().toString();
                 String telPersonaContacto = etTlfContacto.getText().toString();
                 String precioHora = etPrecio.getText().toString();
                 String total = etTotal.getText().toString();
@@ -60,7 +58,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
                 registro.put("telefono", telefono);
                 registro.put("nombre", nombre);
                 registro.put("email", email);
-                registro.put("personaContacto", personaContacto);
                 registro.put("telPersonaContacto", telPersonaContacto);
                 registro.put("precioHora", precioHora);
                 registro.put("total", total);
@@ -85,7 +82,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
         etTelefono.setText("");
         etNombre.setText("");
         etEmail.setText("");
-        etPersonaContacto.setText("");
         etTlfContacto.setText("");
         etPrecio.setText("");
         etTotal.setText("");
@@ -110,10 +106,9 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //                    alumno.setTelefono(fila.getString(0));
 //                    alumno.setNombre(fila.getString(1));
 //                    alumno.setEmail(fila.getString(2));
-//                    alumno.setPersonaContacto(fila.getString(3));
-//                    alumno.setTelPersonaContacto(fila.getString(4));
-//                    alumno.setPrecioHora(fila.getString(5));
-//                    alumno.setTotal(fila.getString(6));
+//                    alumno.setTelPersonaContacto(fila.getString(3));
+//                    alumno.setPrecioHora(fila.getString(4));
+//                    alumno.setTotal(fila.getString(5));
 //
 //                    listaAlumnos.add(alumno);
 //                } while (fila.moveToNext());
@@ -137,9 +132,8 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //            Cursor fila = bd.rawQuery("select nombre,email,personaContacto,telPersonaContacto,precioHora,total  from alumno where telefono=" + telefono + "", null);
 //
 //            if (fila.moveToFirst()) {
-//                etNombre.setText(fila.getString(0));
-//                etEmail.setText(fila.getString(1));
-//                etPersonaContacto.setText(fila.getString(2));
+//                etNombre.setText(fila.getString(1));
+//                etEmail.setText(fila.getString(2));
 //                etTlfContacto.setText(fila.getString(3));
 //                etPrecio.setText(fila.getString(4));
 //                etTotal.setText(fila.getString(5));
@@ -184,7 +178,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //            String telefono = etTelefono.getText().toString();
 //            String nombre = etNombre.getText().toString();
 //            String email = etEmail.getText().toString();
-//            String personaContacto = etPersonaContacto.getText().toString();
 //            String telPersonaContacto = etTlfContacto.getText().toString();
 //            String precioHora = etPrecio.getText().toString();
 //            String total = etTotal.getText().toString();
@@ -194,7 +187,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //            registro.put("telefono", telefono);
 //            registro.put("nombre", nombre);
 //            registro.put("email", email);
-//            registro.put("personaContacto", personaContacto);
 //            registro.put("telPersonaContacto", telPersonaContacto);
 //            registro.put("precioHora", precioHora);
 //            registro.put("total", total);
@@ -214,21 +206,21 @@ public class AddAlumnosActivity extends AppCompatActivity {
 //
 //    }
 
-            public boolean alumnoExistente () {
-                AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-                SQLiteDatabase bd = admin.getWritableDatabase();
+    public boolean alumnoExistente () {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
 
-                String telefono = etTelefono.getText().toString();
+        String telefono = etTelefono.getText().toString();
 
-                String Query = "Select * from alumno where telefono = " + telefono;
-                Cursor cursor = bd.rawQuery(Query, null);
-                if (cursor.getCount() <= 0) {
-                    cursor.close();
-                    return false;
-                }
-                cursor.close();
-                return true;
-            }
+        String Query = "Select * from alumno where telefono = " + telefono;
+        Cursor cursor = bd.rawQuery(Query, null);
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
 
 
 

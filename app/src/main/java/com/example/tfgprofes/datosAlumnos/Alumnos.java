@@ -5,7 +5,6 @@ public class Alumnos {
     private String telefono;
     private String nombre;
     private String email;
-    private String personaContacto;
     private String telPersonaContacto;
     private String precioHora;
     private String total;
@@ -33,14 +32,6 @@ public class Alumnos {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPersonaContacto() {
-        return personaContacto;
-    }
-
-    public void setPersonaContacto(String personaContacto) {
-        this.personaContacto = personaContacto;
     }
 
     public String getTelPersonaContacto() {
