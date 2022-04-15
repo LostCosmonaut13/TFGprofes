@@ -11,10 +11,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tfgprofes.datosAlumnos.Alumnos;
+
+import java.util.ArrayList;
+
 public class AddAlumnosActivity extends AppCompatActivity {
 
     private EditText etNombre, etTelefono, etEmail, etPersonaContacto, etTlfContacto, etPrecio, etTotal;
     private SQLiteDatabase bd;
+  //  public ArrayList<Alumnos> listaAlumnos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,7 @@ public class AddAlumnosActivity extends AppCompatActivity {
 
     public void altaAlumno(View v) {
 
-        if (usuarioExistente()){
+        if (alumnoExistente()){
             Toast.makeText(this, "Este alumno ya existe", Toast.LENGTH_LONG).show();
         }else{
             try {
@@ -68,13 +74,6 @@ public class AddAlumnosActivity extends AppCompatActivity {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
             } finally {
                 LimpiarPantalla();
-//                etTelefono.setText("");
-//                etNombre.setText("");
-//                etEmail.setText("");
-//                etPersonaContacto.setText("");
-//                etTlfContacto.setText("");
-//                etPrecio.setText("");
-//                etTotal.setText("");
                 bd.close();
 
             }
@@ -93,108 +92,143 @@ public class AddAlumnosActivity extends AppCompatActivity {
 
     }
 
-    public void consulta(View v) {
-        try {
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
-            SQLiteDatabase bd = admin.getWritableDatabase();
 
-            String telefono = etTelefono.getText().toString();
+//    public ArrayList<Alumnos> mostrarAlumnos(View v) {
+//        try {
+//            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+//            SQLiteDatabase bd = admin.getWritableDatabase();
+//
+//            ArrayList<Alumnos> listaAlumnos = new ArrayList<>();
+//            Alumnos alumno = null;
+//
+//            Cursor fila = bd.rawQuery("select * from alumno", null);
+//
+//            if (fila.moveToFirst()) {
+//                do {
+//                    alumno = new Alumnos();
+//
+//                    alumno.setTelefono(fila.getString(0));
+//                    alumno.setNombre(fila.getString(1));
+//                    alumno.setEmail(fila.getString(2));
+//                    alumno.setPersonaContacto(fila.getString(3));
+//                    alumno.setTelPersonaContacto(fila.getString(4));
+//                    alumno.setPrecioHora(fila.getString(5));
+//                    alumno.setTotal(fila.getString(6));
+//
+//                    listaAlumnos.add(alumno);
+//                } while (fila.moveToNext());
+//            }
+//
+//        } catch (Exception e) {
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        } finally {
+//            bd.close();
+//            return listaAlumnos; //echar vistazo a si quito el try o no: annadido como public variable arriba del todo
+//        }
+//
+//    }
+//    public void consulta(View v) {
+//        try {
+//            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
+//            SQLiteDatabase bd = admin.getWritableDatabase();
+//
+//            String telefono = etTelefono.getText().toString();
+//
+//            Cursor fila = bd.rawQuery("select nombre,email,personaContacto,telPersonaContacto,precioHora,total  from alumno where telefono=" + telefono + "", null);
+//
+//            if (fila.moveToFirst()) {
+//                etNombre.setText(fila.getString(0));
+//                etEmail.setText(fila.getString(1));
+//                etPersonaContacto.setText(fila.getString(2));
+//                etTlfContacto.setText(fila.getString(3));
+//                etPrecio.setText(fila.getString(4));
+//                etTotal.setText(fila.getString(5));
+//            } else {
+//                Toast.makeText(this, "No existe el alumno", Toast.LENGTH_SHORT).show();
+//                etTelefono.setText("");
+//            }
+//
+//        }catch(Exception e){
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }finally {
+//            bd.close();
+//        }
+//    }
+//
+//    public void baja(View v) {
+//        try {
+//            AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"administracion",null,1);
+//            SQLiteDatabase bd=admin.getWritableDatabase();
+//            String telefono=etTelefono.getText().toString();
+//            int borrado=bd.delete("alumno", "telefono="+telefono+"",null);
+//            if (borrado==1) {
+//                Toast.makeText(this, "Usuario eliminado", Toast.LENGTH_SHORT).show();
+//            }
+//            else {
+//                Toast.makeText(this, "No existe el usuario", Toast.LENGTH_SHORT).show();
+//            }
+//        }catch (Exception e){
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }finally {
+//            bd.close();
+//            LimpiarPantalla();
+//        }
+//    }
+//
+//    public void modificacion(View v) {
+//
+//        try {
+//            AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+//            SQLiteDatabase bd=admin.getWritableDatabase();
+//
+//            String telefono = etTelefono.getText().toString();
+//            String nombre = etNombre.getText().toString();
+//            String email = etEmail.getText().toString();
+//            String personaContacto = etPersonaContacto.getText().toString();
+//            String telPersonaContacto = etTlfContacto.getText().toString();
+//            String precioHora = etPrecio.getText().toString();
+//            String total = etTotal.getText().toString();
+//
+//            ContentValues registro=new ContentValues();
+//
+//            registro.put("telefono", telefono);
+//            registro.put("nombre", nombre);
+//            registro.put("email", email);
+//            registro.put("personaContacto", personaContacto);
+//            registro.put("telPersonaContacto", telPersonaContacto);
+//            registro.put("precioHora", precioHora);
+//            registro.put("total", total);
+//
+//            int cant = bd.update("alumno", registro, "telefono="+ telefono, null);
+//
+//            if (cant==1) {
+//                Toast.makeText(this, "Datos modificados correctamente", Toast.LENGTH_SHORT).show();
+//            }else {
+//                Toast.makeText(this, "No existe el usuario", Toast.LENGTH_SHORT).show();
+//            }
+//        }catch (Exception e){
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }finally {
+//            bd.close();
+//        }
+//
+//    }
 
-            Cursor fila = bd.rawQuery("select nombre,email,personaContacto,telPersonaContacto,precioHora,total  from alumno where telefono=" + telefono + "", null);
+            public boolean alumnoExistente () {
+                AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+                SQLiteDatabase bd = admin.getWritableDatabase();
 
-            if (fila.moveToFirst()) {
-                etNombre.setText(fila.getString(0));
-                etEmail.setText(fila.getString(1));
-                etPersonaContacto.setText(fila.getString(2));
-                etTlfContacto.setText(fila.getString(3));
-                etPrecio.setText(fila.getString(4));
-                etTotal.setText(fila.getString(5));
-            } else {
-                Toast.makeText(this, "No existe el alumno", Toast.LENGTH_SHORT).show();
-                etTelefono.setText("");
+                String telefono = etTelefono.getText().toString();
+
+                String Query = "Select * from alumno where telefono = " + telefono;
+                Cursor cursor = bd.rawQuery(Query, null);
+                if (cursor.getCount() <= 0) {
+                    cursor.close();
+                    return false;
+                }
+                cursor.close();
+                return true;
             }
-
-        }catch(Exception e){
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }finally {
-            bd.close();
-        }
-    }
-
-    public void baja(View v) {
-        try {
-            AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"administracion",null,1);
-            SQLiteDatabase bd=admin.getWritableDatabase();
-            String telefono=etTelefono.getText().toString();
-            int borrado=bd.delete("alumno", "telefono="+telefono+"",null);
-            if (borrado==1) {
-                Toast.makeText(this, "Usuario eliminado", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Toast.makeText(this, "No existe el usuario", Toast.LENGTH_SHORT).show();
-            }
-        }catch (Exception e){
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }finally {
-            bd.close();
-            LimpiarPantalla();
-        }
-    }
-
-    public void modificacion(View v) {
-
-        try {
-            AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-            SQLiteDatabase bd=admin.getWritableDatabase();
-
-            String telefono = etTelefono.getText().toString();
-            String nombre = etNombre.getText().toString();
-            String email = etEmail.getText().toString();
-            String personaContacto = etPersonaContacto.getText().toString();
-            String telPersonaContacto = etTlfContacto.getText().toString();
-            String precioHora = etPrecio.getText().toString();
-            String total = etTotal.getText().toString();
-
-            ContentValues registro=new ContentValues();
-
-            registro.put("telefono", telefono);
-            registro.put("nombre", nombre);
-            registro.put("email", email);
-            registro.put("personaContacto", personaContacto);
-            registro.put("telPersonaContacto", telPersonaContacto);
-            registro.put("precioHora", precioHora);
-            registro.put("total", total);
-
-            int cant = bd.update("alumno", registro, "telefono="+ telefono, null);
-
-            if (cant==1) {
-                Toast.makeText(this, "Datos modificados correctamente", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(this, "No existe el usuario", Toast.LENGTH_SHORT).show();
-            }
-        }catch (Exception e){
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }finally {
-            bd.close();
-        }
-
-    }
-
-    public boolean usuarioExistente() {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion",null,1);
-        SQLiteDatabase bd=admin.getWritableDatabase();
-
-        String telefono = etTelefono.getText().toString();
-
-        String Query = "Select * from alumno where telefono = " + telefono;
-        Cursor cursor = bd.rawQuery(Query, null);
-        if(cursor.getCount() <= 0){
-            cursor.close();
-            return false;
-        }
-        cursor.close();
-        return true;
-    }
 
 
 

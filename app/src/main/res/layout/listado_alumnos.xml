@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+
+        <TextView
+            android:id="@+id/viewNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textColor="#FFC107"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/viewTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewNombre"
+            android:textColor="#FFC107"
+            android:text="Telefono"
+            android:textSize="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

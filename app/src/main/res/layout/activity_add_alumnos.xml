@@ -180,7 +180,7 @@
         android:layout_marginStart="107dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="214dp"
-        android:inputType="none"
+        android:enabled="false"
         android:gravity="center"
         android:textSize="16dp" />
 

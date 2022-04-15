@@ -16,20 +16,19 @@
         app:headerLayout="@menu/menuarriba"
         app:menu="@menu/menulateral"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="holaaaaaaa"
-            android:textSize="40dp"
-            android:textColor="@color/white"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="20dp">
 
 
-    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaAlumnos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

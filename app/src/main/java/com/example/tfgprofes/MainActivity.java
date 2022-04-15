@@ -1,19 +1,31 @@
 package com.example.tfgprofes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.tfgprofes.adaptadores.ListaAlumnosAdapter;
+import com.example.tfgprofes.datosAlumnos.Alumnos;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    private SQLiteDatabase bd;
+    public ArrayList<Alumnos> listaAlumnos;
+    RecyclerView listadoAlumnos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+
+        listadoAlumnos = findViewById(R.id.rvListaAlumnos);
+        listadoAlumnos.setLayoutManager(new LinearLayoutManager(this));
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
+
+        ListaAlumnosAdapter adapter = new ListaAlumnosAdapter(mostrarAlumnos());
+        listadoAlumnos.setAdapter(adapter);
 
     }
 
@@ -49,4 +69,31 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public ArrayList<Alumnos> mostrarAlumnos() {
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        ArrayList<Alumnos> listaAlumnos = new ArrayList<>();
+        Alumnos alumno = null;
+
+        Cursor fila = bd.rawQuery("select telefono,nombre from alumno", null);
+
+        if (fila.moveToFirst()) {
+            do {
+                alumno = new Alumnos();
+
+                alumno.setTelefono(fila.getString(0));
+                alumno.setNombre(fila.getString(1));
+
+                listaAlumnos.add(alumno);
+            } while (fila.moveToNext());
+        }
+
+        bd.close();
+        return listaAlumnos; //echar vistazo a si quito el try o no: annadido como public variable arriba del todo
+
+    }
+
 }
