@@ -5,13 +5,13 @@
     tools:context=".MainActivity">
 
     <group android:checkableBehavior="single">
-        <item android:title="Titulo primero">
+        <item android:title="Contabilidad">
             <menu>
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/idUNO"
                         android:icon="@mipmap/icosalida"
-                        android:title="Item UNO"/>
+                        android:title="Añadir horas"/>
                     <item
                         android:id="@+id/idDOS"
                         android:icon="@mipmap/icosalida"
