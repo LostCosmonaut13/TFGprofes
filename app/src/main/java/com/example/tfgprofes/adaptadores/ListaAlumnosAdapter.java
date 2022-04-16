@@ -63,7 +63,7 @@ public class ListaAlumnosAdapter extends RecyclerView.Adapter<ListaAlumnosAdapte
                 public void onClick(View view) {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ClickAlumnoActivity.class);
-                    intent.putExtra("tel", listaAlumnos.get(getAdapterPosition()).getTelefono());
+                    intent.putExtra("ID", listaAlumnos.get(getAdapterPosition()).getId());
                     context.startActivity(intent);
                 }
             });

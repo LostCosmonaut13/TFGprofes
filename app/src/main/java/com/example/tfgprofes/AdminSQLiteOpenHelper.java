@@ -12,13 +12,13 @@ class AdminSQLiteOpenHelper extends SQLiteOpenHelper{
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table alumno(telefono text primary key, nombre text, email text, telPersonaContacto text, precioHora text, total text)");
+        db.execSQL("create table alumno(id integer primary key autoincrement, telefono text, nombre text, email text, telPersonaContacto text, precioHora text, total text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists alumno");
-        db.execSQL("create table alumno(telefono text primary key, nombre text, email text, telPersonaContacto text, precioHora text, total text)");
+        db.execSQL("create table alumno(id integer primary key autoincrement, telefono text, nombre text, email text, telPersonaContacto text, precioHora text, total text)");
     }
 }
 

@@ -2,6 +2,7 @@ package com.example.tfgprofes.datosAlumnos;
 
 public class Alumnos {
 
+    private int id;
     private String telefono;
     private String nombre;
     private String email;
@@ -9,6 +10,14 @@ public class Alumnos {
     private String precioHora;
     private String total;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTelefono() {
         return telefono;

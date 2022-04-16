@@ -78,14 +78,15 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Alumnos> listaAlumnos = new ArrayList<>();
         Alumnos alumno = null;
 
-        Cursor fila = bd.rawQuery("select telefono,nombre from alumno", null);
+        Cursor fila = bd.rawQuery("select * from alumno", null);
 
         if (fila.moveToFirst()) {
             do {
                 alumno = new Alumnos();
 
-                alumno.setTelefono(fila.getString(0));
-                alumno.setNombre(fila.getString(1));
+                alumno.setId(fila.getInt(0));
+                alumno.setTelefono(fila.getString(1));
+                alumno.setNombre(fila.getString(2));
 
                 listaAlumnos.add(alumno);
             } while (fila.moveToNext());
