@@ -2,12 +2,15 @@ package com.example.tfgprofes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.content.ContentValues;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ public class AddAlumnosActivity extends AppCompatActivity {
     private SQLiteDatabase bd;
     Alumnos alumno = null;
     long id = 0;
+    Button bHorario;
 
 
     @Override
@@ -35,6 +39,30 @@ public class AddAlumnosActivity extends AppCompatActivity {
         etPrecio = findViewById(R.id.etPrecio);
         etTotal = findViewById(R.id.etTotal);
 
+        bHorario = findViewById(R.id.btHorario);
+
+        bHorario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(!etNombre.getText().toString().isEmpty()){
+
+                    Intent intent = new Intent(Intent.ACTION_INSERT); //para insertar un evento en GCalendar
+                    intent.setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, etNombre.getText().toString());
+                    intent.putExtra(CalendarContract.Events.ALL_DAY, "false");
+
+                 //   if(intent.resolveActivity(getPackageManager()) != null){ //si el calendario puede hacer esto
+                    startActivity(intent);
+                  //  }else{
+                   //     Toast.makeText(AddAlumnosActivity.this, "No se ha podido añadir el horario", Toast.LENGTH_SHORT).show();
+                  //  }
+
+                }else{
+                    Toast.makeText(AddAlumnosActivity.this, "Debes completar el campo Nombre", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 
@@ -68,6 +96,8 @@ public class AddAlumnosActivity extends AppCompatActivity {
                 id = bd.insert("alumno", null, registro);
 
                 Toast.makeText(this, "Datos del alumno guardados", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AddAlumnosActivity.this, MainActivity.class));
+                finish();
 
 
             } catch (Exception e) {

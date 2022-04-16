@@ -13,21 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="15dp"
         android:text="Telefono" />
 
     <EditText
         android:id="@+id/etTlf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="9"
         android:layout_below="@+id/tTelefono"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
         android:hint="Telefono de contacto"
         android:textSize="16dp"
         android:inputType="phone" />
@@ -36,11 +35,10 @@
         android:id="@+id/tNombreApellidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/etTlf"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
         android:text="Nombre" />
 
 
@@ -48,12 +46,11 @@
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/tNombreApellidos"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
         android:hint="@string/etNombre"
         android:textSize="16dp"
         android:inputType="textPersonName" />
@@ -62,11 +59,10 @@
         android:id="@+id/tEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/etNombre"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
         android:text="Email" />
 
 
@@ -74,12 +70,11 @@
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/tEmail"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="15dp"
         android:ems="10"
         android:hint="@string/etEmail"
         android:textSize="16dp"
@@ -89,23 +84,21 @@
         android:id="@+id/tTlfContacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/etEmail"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
         android:text="Telefono extra" />
 
     <EditText
         android:id="@+id/etTlfContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/tTlfContacto"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="15dp"
         android:hint="(no necesario)"
         android:textSize="16dp"
         android:inputType="phone" />
@@ -114,21 +107,22 @@
         android:id="@+id/tPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/etTlfContacto"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
         android:text="Precio/Hora" />
 
     <EditText
         android:id="@+id/etPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/tPrecio"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="315dp"
         android:hint="@string/etPrecio"
@@ -140,8 +134,9 @@
         android:id="@+id/tTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/etTlfContacto"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/tPrecio"
         android:text="Total" />
@@ -150,25 +145,55 @@
         android:id="@+id/etTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/tTotal"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="107dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="214dp"
+        android:enabled="false"
         android:gravity="center"
         android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/btGuardar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_below="@+id/etTotal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPrecio"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/btGuardarAlumno"
-        android:backgroundTint="#40A33F"
-        android:onClick="altaAlumno"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#59411F"
+            android:text="Horario" />
+
+        <TextView
+            android:id="@+id/espacioVacio"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/btGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#127411"
+            android:onClick="altaAlumno"
+            android:text="@string/btGuardarAlumno" />
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>
